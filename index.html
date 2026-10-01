@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="SS News — fast news, trends and community discussion.">
+<meta name="theme-color" content="#0b1020">
+<title>SS News — News & Community</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span>SS</span> News</a>
+  <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">☾</button>
+  <button class="menu-btn" id="menuBtn">☰</button>
+</header>
+
+<nav class="nav" id="nav">
+  <a href="#home">Home</a><a href="#trending">Trending</a><a href="#following">Following</a>
+  <a href="#saved">Saved</a><a href="#profile">Profile</a>
+  <a class="admin-link" href="admin.html">Admin</a>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div>
+    <p class="eyebrow">LIVE • NEWS • COMMUNITY</p>
+    <h1>Know what matters.<br><em>Share what you think.</em></h1>
+    <p class="hero-copy">A modern home for breaking news, useful stories and real community discussion.</p>
+    <div class="hero-actions"><button class="primary" onclick="scrollToFeed()">Explore news</button><button class="secondary" onclick="openComposer()">Create post</button></div>
+  </div>
+  <div class="hero-card"><span class="live-dot"></span><strong>Live feed</strong><p>Stories and community posts update in one place.</p></div>
+</section>
+
+<section class="ticker"><strong>BREAKING</strong><div id="tickerText">SS News community feed is live — discover the latest stories and discussions.</div></section>
+
+<section class="layout">
+<div class="content">
+  <div class="section-head" id="trending"><div><p class="eyebrow">DISCOVER</p><h2>Trending now</h2></div><button class="text-btn" onclick="setFilter('all')">View all →</button></div>
+  <div class="trends" id="trendCards"></div>
+
+  <div class="feed-head" id="following">
+    <div><p class="eyebrow">YOUR FEED</p><h2>Latest stories</h2></div>
+    <div class="filters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="news">News</button><button class="filter" data-filter="tech">Tech</button><button class="filter" data-filter="sport">Sport</button><button class="filter" data-filter="world">World</button></div>
+  </div>
+  <div class="search-row"><input id="search" placeholder="Search stories, topics or people…"><button class="primary" onclick="runSearch()">Search</button></div>
+  <div id="feed"></div>
+</div>
+
+<aside>
+  <div class="ad-box"><small>ADVERTISEMENT</small><div>Your ad could appear here</div><button onclick="alert('Ad placement demo')">Advertise with us</button></div>
+  <div class="side-card"><h3>Popular topics</h3><div class="chips" id="chips"></div></div>
+  <div class="side-card"><h3>Community</h3><div class="stat"><b id="online">2,481</b><span>people online</span></div><div class="stat"><b>18.7K</b><span>discussions today</span></div></div>
+  <div class="side-card"><h3>Newsletter</h3><p>Get a concise daily news briefing.</p><input placeholder="Your email"><button class="primary full" onclick="subscribe()">Subscribe</button></div>
+</aside>
+</section>
+
+<section id="saved" class="saved-section"><div class="section-head"><div><p class="eyebrow">YOUR SPACE</p><h2>Saved stories</h2></div></div><div id="savedList" class="empty">No saved stories yet. Tap the bookmark on any story.</div></section>
+
+<section id="profile" class="profile-section">
+  <div class="profile-card"><div class="avatar">SS</div><div><p class="eyebrow">YOUR PROFILE</p><h2>SS Reader</h2><p>Member • 12 posts • 48 followers</p></div><button class="secondary" onclick="openComposer()">New post</button></div>
+</section>
+</main>
+
+<div class="modal" id="composer"><div class="modal-box"><button class="close" onclick="closeComposer()">×</button><h2>Create a post</h2><input id="postTitle" placeholder="Post title"><textarea id="postBody" placeholder="What's happening?"></textarea><select id="postCategory"><option>News</option><option>Tech</option><option>Sport</option><option>World</option></select><button class="primary full" onclick="createPost()">Publish</button></div></div>
+<div class="toast" id="toast"></div>
+<footer><div class="brand"><span>SS</span> News</div><p>Independent community news prototype.</p><div><a href="#">About</a><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div><small>© 2026 SS News</small></footer>
+<script src="app.js"></script>
+</body>
+</html>
